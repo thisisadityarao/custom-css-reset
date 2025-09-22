@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A custom CSS reset based on Josh Comeau and Andy Bell's CSS reset.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisisadityarao/custom-css-reset"
+  },
   "scripts": {
     "build": "node ./esbuild.mjs"
   },

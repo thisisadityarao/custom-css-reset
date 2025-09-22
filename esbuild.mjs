@@ -8,7 +8,6 @@ await esbuild.build({
 	// A list of files to bundle
 	entryPoints: [
 		// Files to bundle...
-        'src/js/*.js',
 		'src/css/*.css',
 	],
 	// The root directory for the input files
