@@ -1,0 +1,14 @@
+{
+  "name": "custom-css-reset",
+  "version": "0.0.1",
+  "description": "A custom CSS reset based on Josh Comeau and Andy Bell's CSS reset.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./esbuild.mjs"
+  },
+  "author": "Aditya Rao",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}
