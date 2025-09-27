@@ -12,7 +12,22 @@
   },
   "author": "Aditya Rao",
   "license": "MIT",
+  "browserlist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions",
+    "cover 99.5%"
+  ],
   "devDependencies": {
-    "esbuild": "0.25.10"
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.36.0",
+    "esbuild": "0.25.10",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.4.0",
+    "prettier": "3.6.2",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard": "^39.0.0"
   }
 }
