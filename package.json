@@ -1,14 +1,23 @@
 {
-  "name": "custom-css-reset",
+  "name": "@aditya_r/css-reset",
   "version": "0.0.1",
   "description": "A custom CSS reset based on Josh Comeau and Andy Bell's CSS reset.",
-  "main": "index.js",
+  "main": "dist/reset.min.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/thisisadityarao/custom-css-reset"
   },
+  "keywords": [
+    "custom",
+    "css",
+    "reset"
+  ],
   "scripts": {
-    "build": "node ./esbuild.mjs"
+    "build": "node ./esbuild.mjs",
+    "release": "np"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "author": "Aditya Rao",
   "license": "MIT",
