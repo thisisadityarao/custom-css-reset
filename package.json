@@ -7,12 +7,16 @@
     "type": "git",
     "url": "https://github.com/thisisadityarao/custom-css-reset"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "custom",
     "css",
     "reset"
   ],
   "scripts": {
+    "test": "echo \"Error: no test specified\"",
     "build": "node ./esbuild.mjs",
     "release": "np"
   },
