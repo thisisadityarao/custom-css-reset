@@ -5,15 +5,17 @@
     https://piccalil.li/blog/a-more-modern-css-reset/
 */
 
+/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin in favour of better control in authored CSS */
+/* Remove default margin and padding in favour of better control in authored CSS */
 * {
   margin: 0;
+  padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,6 +26,8 @@
 
 /* Prevent font size inflation */
 html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
 
