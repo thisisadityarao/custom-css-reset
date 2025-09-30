@@ -1,6 +1,6 @@
 {
   "name": "@aditya_r/css-reset",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A custom CSS reset based on Josh Comeau and Andy Bell's CSS reset.",
   "main": "dist/reset.min.css",
   "repository": {
