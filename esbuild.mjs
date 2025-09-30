@@ -1,7 +1,4 @@
 import * as esbuild from 'esbuild';
-import pkg from './package.json' with { type: 'json' };
-
-const banner = `/*! ${pkg.name} v${pkg.version} | (c) ${pkg.author.name} | ${pkg.repository.url} */`;
 
 // Run a build
 await esbuild.build({
@@ -16,11 +13,6 @@ await esbuild.build({
   outdir: 'dist',
   // The output file extension
   outExtension: { '.css': '.min.css' },
-  // The banner to use for JS and CSS files
-  banner: {
-    js: banner,
-    css: banner,
-  },
   // If true, bundle files
   bundle: true,
   // If true, right the new file to the harddrive
