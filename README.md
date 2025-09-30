@@ -14,6 +14,16 @@ or
 
 `https://raw.githubusercontent.com/thisisadityarao/custom-css-reset/refs/heads/main/src/reset.css`
 
+## CDN
+
+### UNPKG
+
+`https://unpkg.com/@aditya_r/css-reset/dist/reset.min.css`
+
+### jsDelivr
+
+`https://cdn.jsdelivr.net/npm/@aditya_r/css-reset@0.0.3/dist/reset.min.css`
+
 ## License
 
 MIT © Aditya Rao
