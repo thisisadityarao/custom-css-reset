@@ -1,8 +1,12 @@
-/*
- 1. Josh's Custom CSS Reset
+/*  This reset is based on the following resets, from,
+ 1. Josh Comeau's Custom CSS Reset
     https://www.joshwcomeau.com/css/custom-css-reset/
- 2. Andy's (more) Modern CSS Reset
+ 2. Andy Bell's (more) Modern CSS Reset
     https://piccalil.li/blog/a-more-modern-css-reset/
+
+    It doesn't include everything from Josh or Andy's reset, only
+    bits that I thought should be included in a CSS reset, based on my
+    experience and requirements.
 */
 
 /* Box sizing rules */
@@ -40,10 +44,13 @@ ol[role='list'] {
   list-style: none;
 }
 
+/* 1. The body element is at least as tall as the html element, allowing it to grow with content.
+   2. Add accessible line-height
+   3. Improve text rendering */
 body {
-  min-height: 100svh; /* The body element is at least as tall as the html element, allowing it to grow with content. */
-  line-height: 1.5; /* Add accessible line-height */
-  -webkit-font-smoothing: antialiased; /* Improve text rendering */
+  min-height: 100svh; /* 1 */
+  line-height: 1.5; /* 2 */
+  -webkit-font-smoothing: antialiased; /* 3 */
 }
 
 /* A elements that don't have a class get default styles */
