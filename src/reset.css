@@ -1,104 +1,288 @@
-/*  This reset is based on the following resets, from,
- 1. Josh Comeau's Custom CSS Reset
-    https://www.joshwcomeau.com/css/custom-css-reset/
- 2. Andy Bell's (more) Modern CSS Reset
-    https://piccalil.li/blog/a-more-modern-css-reset/
+/*
+Created by: Aditya Rao <dev.adityarao@gmail.com>
 
-    It doesn't include everything from Josh or Andy's reset, only
-    bits that I thought should be included in a CSS reset, based on my
-    experience and requirements.
+This project takes inspiration from some well known and other lesser known
+resets, like:
+- Josh Comeau's modern CSS reset
+  [https://www.joshwcomeau.com/css/custom-css-reset/]
+- Andy Bell a (more) modern CSS reset
+  [https://piccalil.li/blog/a-more-modern-css-reset/]
+- Chris Coyer CSS Starter
+  [https://frontendmasters.com/blog/the-coyier-css-starter/]
+- Jen Simmon's CSS Remedy
+  [https://github.com/jensimmons/cssremedy]
+- and more...
 */
 
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin and padding in favour of better control in authored CSS */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* Enable keyword animations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
+/* If using cascade layers, this should be the first layer in your @layer definition statement. Since un-layered styles have higher priority than styles with-in @layer, this reset can be used in projects not utilising cascade layers as well.
+*/
+@layer reset {
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-}
 
-/* 1. Prevent font size inflation
-   2. Set height of html node to 100% */
-html {
-  -moz-text-size-adjust: none; /* 1 */
-  -webkit-text-size-adjust: none; /* 1 */
-  text-size-adjust: none; /* 1 */
-  height: 100%; /* 2 */
-}
+  /* Remove default margin and padding in favour of better control in authored CSS */
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
+  @media (prefers-reduced-motion: no-preference) {
+    /* Opt-in to cross-document view transitions */
+    @view-transition {
+      navigation: auto;
+    }
 
-/* 1. The body element is at least as tall as the html element, allowing it to grow with content.
-   2. Add accessible line-height
-   3. Improve text rendering */
-body {
-  min-height: 100svh; /* 1 */
-  line-height: 1.5; /* 2 */
-  -webkit-font-smoothing: antialiased; /* 3 */
-}
+    /* Enable keyword animations */
+    html {
+      interpolate-size: allow-keywords;
+    }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
+    /* Set scroll behavior for entire document */
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
 
-/* Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
+  /* 1. Prevent font size inflation
+     2. Set height of html node to 100%
+     3. Set an accessible line-height
+*/
+  html {
+    -moz-text-size-adjust: none; /* 1 */
+    -webkit-text-size-adjust: none; /* 1 */
+    text-size-adjust: none; /* 1 */
+    block-size: 100%; /* 2 */
+    line-height: 1.5; /* 3 */
+  }
 
-/* Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
+  /* 1. The body element is at least as tall as the html element, allowing it to         grow with content
+     2. Add accessible line-height
+     3. Improve text rendering
+  */
+  body {
+    min-block-size: 100svh; /* 1 */
+    line-height: 1.5; /* 2 */
+    -webkit-font-smoothing: antialiased; /* 3 */
+  }
 
-/* Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
+  /* Set default font-family */
+  pre,
+  code,
+  kbd,
+  samp {
+    font-family: ui-monospace, SFMono-Regular, monospace;
+  }
 
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
+  /* To preserve white space and line breaks but make text wrap within the element
+  */
+  pre {
+    white-space: pre-wrap;
+  }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed
+  */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+
+  /* More readable underline style for anchor tags without a class. This could be set on anchor tags globally, but it can cause conflicts
+  */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* 1. Block display is usually what we want
+     2. The `vertical-align` removes strange space-below in case authors overwrite       the display value
+     3. Responsive by default
+     4. Audio without `[controls]` remains hidden by default
+  */
+  img,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+    max-inline-size: 100%;
+  }
+
+  audio:not([controls]) {
+    display: none;
+  }
+
+  /*
+  Maintain intrinsic aspect ratios when `max-width` is applied.
+  `iframe`, `embed`, and `object` are also embedded, but have
+  no intrinsic ratio, so their `height` needs to be set explicitly
+*/
+  img,
+  video,
+  canvas {
+    block-size: auto;
+  }
+
+  /* 1. Useful for SVG icons
+     2. The `vertical-align` removes strange space-below in case authors overwrite       the display value
+     3. Maintain intrinsic aspect ratio when `max-width`/`max-inline-size` is            applied
+  */
+  svg {
+    display: block;
+    max-inline-size: 100%;
+    fill: currentcolor; /* 1 */
+    vertical-align: middle; /* 2 */
+    block-size: auto; /* 3 */
+  }
+
+  /* The <picture> element will not generate any box. Its background, border, and padding will not be rendered
+  */
+  picture {
+    display: contents;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+
+  /* 1. Balance text wrapping on headings
+     2. Remove margin above all headers
+  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance; /* 1 */
+    margin-block-start: 0; /* 2 */
+  }
+
+  /* Better base styles for <hr> */
+  hr {
+    border-style: solid;
+    border-width: 1px 0 0;
+    color: inherit;
+    height: 0;
+    overflow: visible;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block-start: 5ex; /* Consider using rlh unit */
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    text-transform: inherit;
+  }
+
+  /* Every input has 100% width except button, submit, reset, checkbox and radio
+  */
+  input:not(
+    :where(
+      [type='submit'],
+      [type='checkbox'],
+      [type='radio'],
+      [type='button'],
+      [type='reset']
+    )
+  ) {
+    inline-size: 100%;
+  }
+
+  /* Allow resizing textarea only in one direction i.e vertical */
+  textarea {
+    resize: vertical;
+    resize: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+  }
+
+  /* Set sensible defaults for border and backgrounds, on all elements except fieldset progress and meter
+  */
+  *:not(fieldset, progress, meter) {
+    border-width: 0;
+    border-style: solid;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+  }
+
+  /* Make it clear that interactive elements are interactive */
+  a[href],
+  area,
+  button,
+  input,
+  label[for],
+  select,
+  summary,
+  textarea,
+  [tabindex]:not([tabindex*='-']) {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  input[type='file'] {
+    cursor: auto;
+  }
+
+  input[type='file']::-webkit-file-upload-button,
+  input[type='file']::file-selector-button {
+    cursor: pointer;
+  }
+
+  /* Make sure users can't select button text */
+  button,
+  button[type],
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'],
+  input[type='file']::-webkit-file-upload-button,
+  input[type='file']::file-selector-button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    text-align: center;
+  }
+
+  /* Disabled cursor for disabled buttons */
+  button[disabled],
+  button[type][disabled],
+  input[type='button'][disabled],
+  input[type='submit'][disabled],
+  input[type='reset'][disabled] {
+    cursor: not-allowed;
+  }
+
+  /* hidden is an attribute selector on the user-agent, with weak specificity, so setting any display property or a simple class selector will override it.
+  Read: https://meowni.ca/hidden.is.a.lie.html
+  */
+  [hidden] {
+    display: none !important;
+  }
 }
